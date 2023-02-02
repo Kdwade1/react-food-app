@@ -17,11 +17,20 @@ function Popular() {
         <div>
             {popular.map((recipes) =>{
                 return(
-                    <div key={recipes.id}>
+                    <Wrapper>
+                        <h3>Popular Pick</h3>
+                        {popular.map((recipes)=>{
+                            return(
+                                <Card>
+                                    <p>{recipes.title}</p>
+                                </Card>
+                            )
+                        })}
+                    {/*// <div key={recipes.id}>*/}
                         <p>
                             {recipes.title}
                         </p>
-                    </div>
+                    </Wrapper>
 
                 )
             })
@@ -29,5 +38,12 @@ function Popular() {
         </div>
     )
 }
+const Wrapper=styled.div`
+margin:4rem 0rem
+`
+const Card=styled.div`
+min-height:25rem;
+border-radius:2rem
+`
 
 export default Popular
